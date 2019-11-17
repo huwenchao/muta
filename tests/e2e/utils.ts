@@ -7,7 +7,7 @@ const toml = require("toml");
 // const { parse } = require("@toml-tools/parser");
 // import parse from '@toml-tools/parser';
 
-export const API_URL = "http://localhost:8000/graphql";
+export const API_URL = process.env.API_URL || "http://localhost:8000/graphql";
 export const client = new ApolloClient({
   link: createHttpLink({
     uri: API_URL,

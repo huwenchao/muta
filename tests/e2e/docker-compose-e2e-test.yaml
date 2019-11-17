@@ -1,0 +1,52 @@
+version: '2'
+
+services:
+  chain:
+    # container_name: chain
+    image: nervos/muta:dev
+    # hostname: chain
+    environment:
+      - RUST_BACKTRACE
+      - RUST_LOG=info,overlord=warn
+    working_dir: /app
+    volumes:
+      - ./config.toml:/app/devtools/chain/config.toml
+      - ../..:/app
+      - ../../target/tests/e2e/docker_target:/app/target
+      - ../../target/tests/e2e/cargo_cache:/usr/local/cargo/registry
+    command:
+      - /bin/sh
+      - -c
+      - |
+        rm -rf ./target/tests/e2e/data
+        cargo run
+    # networks:
+    #   single:
+    #     aliases:
+    #       - node0
+  e2e-test:
+    image: node:10.15
+    depends_on:
+      - chain
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ../../target/tests/e2e/node_modules:/app/node_modules
+    links:
+      - chain
+    environment:
+      - API_URL=http://chain:8000/graphql
+    # command: npm install && npm run test
+    command: 
+      - /bin/sh
+      - -c
+      - |
+        yarn
+        chmod +x ./wait-for-it.sh
+        ./wait-for-it.sh -t 7200 chain:8000 -- yarn run test
+      #   wait-for-it.sh 
+      #   yarn
+      #   yarn run test
+
+# networks:
+#   single:
