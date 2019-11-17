@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { client, getNonce, delay } from "./utils";
+import { client, getNonce, delay, CHAIN_CONFIG } from "./utils";
 
 describe("query API works", () => {
   test("getLatestEpoch works", async () => {
@@ -87,7 +87,7 @@ mutation {
     let i;
     for (i = 0; i < retry_times; i++) {
       // wait at least 2 blocks. Change to confirm after impl
-      await delay(300);
+      await delay(CHAIN_CONFIG.consensus.interval * 2 + 100);
       res = await client.query({ query: gql(q_balance) });
       // console.log(Date.now(), res, res.data.height);
       const current_height_after = parseInt(res.data.height.header.epochId, 16);

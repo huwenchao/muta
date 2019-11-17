@@ -346,10 +346,15 @@
   dependencies:
     jest-diff "^24.3.0"
 
-"@types/node@>=6", "@types/node@^12.7.0":
+"@types/node@>=6":
   version "12.7.12"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-12.7.12.tgz#7c6c571cc2f3f3ac4a59a5f2bd48f5bdbc8653cc"
   integrity sha1-fGxXHMLz86xKWaXyvUj1vbyGU8w=
+
+"@types/node@^12.12.8":
+  version "12.12.8"
+  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-12.12.8.tgz?cache=0&sync_timestamp=1573848614685&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-12.12.8.tgz#dab418655af39ce2fa99286a0bed21ef8072ac9d"
+  integrity sha1-2rQYZVrznOL6mShqC+0h74ByrJ0=
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
@@ -3462,6 +3467,11 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
+
+toml@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/toml/download/toml-3.0.0.tgz#342160f1af1904ec9d204d03a5d61222d762c5ee"
+  integrity sha1-NCFg8a8ZBOydIE0DpdYSItdixe4=
 
 tough-cookie@^2.3.3, tough-cookie@^2.3.4:
   version "2.5.0"

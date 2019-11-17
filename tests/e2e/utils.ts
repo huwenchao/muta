@@ -2,6 +2,10 @@ import fetch from "node-fetch";
 import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import ApolloClient from "apollo-client";
+import { readFileSync } from "fs";
+const toml = require("toml");
+// const { parse } = require("@toml-tools/parser");
+// import parse from '@toml-tools/parser';
 
 export const API_URL = "http://localhost:8000/graphql";
 export const client = new ApolloClient({
@@ -30,3 +34,5 @@ export function getNonce() {
 export function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+export const CHAIN_CONFIG = toml.parse(readFileSync("./config.toml", "utf-8"));
