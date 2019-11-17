@@ -1,8 +1,8 @@
 module.exports = {
-  displayName: 'Unit Tests',
-  testRegex: '(/.*.(test|spec))\\.(ts?|js?)$',
+  displayName: "Unit Tests",
+  testRegex: "(/.*.(test|spec))\\.(ts?|js?)$",
   transform: {
-    '^.+\\.ts?$': 'ts-jest',
+    "^.+\\.ts?$": "ts-jest"
   },
-  moduleFileExtensions: ['ts', 'js', 'json'],
-}
+  moduleFileExtensions: ["ts", "js", "json"]
+};
