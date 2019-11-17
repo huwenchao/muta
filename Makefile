@@ -65,7 +65,7 @@ e2e-test:
 	@echo "rm -rf ./target/tests/e2e/data && \                              "
 	@echo "RUST_LOG=info,overlord=warn cargo run -- -c tests/e2e/config.toml"
 	@echo "-----------------------------------------------------------------"
-	cd tests/e2e && yarn && sh ./wait-for-it.sh -t 300 localhost:8000 -- yarn run test
+	cd tests/e2e && yarn && ./wait-for-it.sh -t 300 localhost:8000 -- yarn run test
 
 e2e-test-via-docker:
 	docker-compose -f tests/e2e/docker-compose-e2e-test.yaml up --exit-code-from e2e-test --force-recreate
