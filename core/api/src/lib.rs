@@ -1,6 +1,6 @@
 pub mod adapter;
 pub mod config;
-mod schema;
+pub mod schema;
 
 use actix_web::{web, App, Error, FromRequest, HttpResponse, HttpServer};
 use futures::executor::block_on;
